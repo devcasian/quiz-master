@@ -9,17 +9,11 @@ public class Quiz : MonoBehaviour
     [SerializeField] private GameObject[] answerButtons;
     [SerializeField] private Sprite defaultAnswerSprite;
     [SerializeField] private Sprite correctAnswerSprite;
-    // private int _correctAnswerIndex;
 
     private void Start()
     {
-        questionText.text = question.GetQuestion();
-
-        for (var index = 0; index < answerButtons.Length; index++)
-        {
-            var buttonText = answerButtons[index].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = question.GetAnswer(index);
-        }
+        GetNextQuestion();
+        // DisplayQuestion();
     }
 
     public void OnAnswerSelected(int index)
@@ -39,6 +33,44 @@ public class Quiz : MonoBehaviour
             questionText.text = "Incorrect. The correct answer was:\n" + correctAnswer;
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
+        }
+
+        SetButtonState(false);
+    }
+
+    private void GetNextQuestion()
+    {
+        SetButtonState(true);
+        SetDefaultButtonSprites();
+        DisplayQuestion();
+    }
+
+    private void SetDefaultButtonSprites()
+    {
+        foreach (var answer in answerButtons)
+        {
+            var buttonImage = answer.GetComponent<Image>();
+            buttonImage.sprite = defaultAnswerSprite;
+        }
+    }
+
+    private void DisplayQuestion()
+    {
+        questionText.text = question.GetQuestion();
+
+        for (var index = 0; index < answerButtons.Length; index++)
+        {
+            var buttonText = answerButtons[index].GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = question.GetAnswer(index);
+        }
+    }
+
+    private void SetButtonState(bool state)
+    {
+        foreach (var answer in answerButtons)
+        {
+            var button = answer.GetComponent<Button>();
+            button.interactable = state;
         }
     }
 }
