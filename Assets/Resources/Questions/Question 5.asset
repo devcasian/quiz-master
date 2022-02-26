@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 5
   m_EditorClassIdentifier: 
   question: How many of Henry VIII's wives were called Catherine?
+  answers:
+  - 1
+  - 2
+  - 3
+  - 4
+  correctAnswerIndex: 2

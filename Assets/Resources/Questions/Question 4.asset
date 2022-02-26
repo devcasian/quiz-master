@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: What is the name of the 1976 film about the Watergate scandal, starring
     Robert Redford and Dustin Hoffman?
+  answers:
+  - All the President's Men
+  - 'Millhouse: A White Comedy'
+  - Four More Years
+  - Secret Honor
+  correctAnswerIndex: 0

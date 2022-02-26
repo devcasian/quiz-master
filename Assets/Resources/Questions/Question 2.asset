@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 2
   m_EditorClassIdentifier: 
   question: What is the name of the main antagonist in the Shakespeare play Othello?
+  answers:
+  - Sen
+  - Lago
+  - Peeter
+  - Julien
+  correctAnswerIndex: 1
