@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question: In which part of your body would you find the cruciate ligament?
+  answers:
+  - Knee
+  - Head
+  - Chest
+  - Foot
+  correctAnswerIndex: 0
