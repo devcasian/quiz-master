@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -8,8 +7,8 @@ public class Timer : MonoBehaviour
 
     public bool loadNextQuestion;
     public float fillFraction;
+    public bool isAnsweringQuestion;
 
-    private bool _isAnsweringQuestion;
     private float _timerValue;
 
     private void Update()
@@ -24,9 +23,9 @@ public class Timer : MonoBehaviour
 
     private void UpdateTimer()
     {
-        _timerValue = Time.deltaTime;
+        _timerValue -= Time.deltaTime;
 
-        if (_isAnsweringQuestion)
+        if (isAnsweringQuestion)
         {
             if (_timerValue > 0)
             {
@@ -34,7 +33,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                _isAnsweringQuestion = false;
+                isAnsweringQuestion = false;
                 _timerValue = timeToShowCorrectAnswer;
             }
         }
@@ -46,7 +45,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                _isAnsweringQuestion = true;
+                isAnsweringQuestion = true;
                 _timerValue = timeToCompleteQuestion;
                 loadNextQuestion = true;
             }
