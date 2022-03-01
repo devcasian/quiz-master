@@ -1075,7 +1075,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionText: {fileID: 1148430054}
-  question: {fileID: 11400000, guid: b88b7d582f481604d8efd73f31883f4f, type: 2}
+  questions:
+  - {fileID: 11400000, guid: b88b7d582f481604d8efd73f31883f4f, type: 2}
+  - {fileID: 11400000, guid: d9b8535014d69ab418f8777cd3dc302e, type: 2}
+  - {fileID: 11400000, guid: adc7f704b35d3184b90004c4e3430497, type: 2}
+  - {fileID: 11400000, guid: 1841a2d934d6e96409b3ee3c00c1da5d, type: 2}
+  - {fileID: 11400000, guid: 942817258e616ef4592f47763da38ab1, type: 2}
   answerButtons:
   - {fileID: 618547119}
   - {fileID: 353716169}
@@ -1477,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToCompleteQuestion: 15
-  timeToShowCorrectAnswer: 5
+  timeToShowCorrectAnswer: 2
   loadNextQuestion: 0
   fillFraction: 0
   isAnsweringQuestion: 0

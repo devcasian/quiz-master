@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float timeToCompleteQuestion;
-    [SerializeField] private float timeToShowCorrectAnswer;
+    [SerializeField]
+    private float timeToCompleteQuestion;
+
+    [SerializeField]
+    private float timeToShowCorrectAnswer;
 
     public bool loadNextQuestion;
     public float fillFraction;
