@@ -45,7 +45,7 @@ public class Quiz : MonoBehaviour
 
     public bool isComplete;
 
-    private void Start()
+    private void Awake()
     {
         _timer = FindObjectOfType<Timer>();
         _scoreKeeper = FindObjectOfType<ScoreKeeper>();
@@ -59,6 +59,12 @@ public class Quiz : MonoBehaviour
 
         if (_timer.loadNextQuestion)
         {
+            if (progressBar.value == progressBar.maxValue)
+            {
+                isComplete = true;
+                return;
+            }
+
             _hasAnsweredEarly = false;
             GetNextQuestion();
             _timer.loadNextQuestion = false;
@@ -77,11 +83,6 @@ public class Quiz : MonoBehaviour
         SetButtonState(false);
         _timer.CancelTimer();
         scoreText.text = "Score: " + _scoreKeeper.CalculateScore() + "%";
-
-        if (progressBar.value == progressBar.maxValue)
-        {
-            isComplete = true;
-        }
     }
 
     private void DisplayAnswer(int index)
@@ -107,15 +108,14 @@ public class Quiz : MonoBehaviour
 
     private void GetNextQuestion()
     {
-        if (questions.Count > 0)
-        {
-            SetButtonState(true);
-            SetDefaultButtonSprites();
-            GetRandomQuestion();
-            DisplayQuestion();
-            progressBar.value++;
-            _scoreKeeper.IncrementQuestionsSeen();
-        }
+        if (questions.Count <= 0) return;
+
+        SetButtonState(true);
+        SetDefaultButtonSprites();
+        GetRandomQuestion();
+        DisplayQuestion();
+        progressBar.value++;
+        _scoreKeeper.IncrementQuestionsSeen();
     }
 
     private void GetRandomQuestion()

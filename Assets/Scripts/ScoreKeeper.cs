@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private int _correctAnswers = 0;
-    private int _questionsSeen = 0;
+    private int _correctAnswers;
+    private int _questionsSeen;
 
     public int GetCorrectAnswers()
     {

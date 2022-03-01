@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class EndScreen : MonoBehaviour
 
     private ScoreKeeper _scoreKeeper;
 
-    private void Start()
+    private void Awake()
     {
         _scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
